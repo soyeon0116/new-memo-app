@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import SideBar from "./components/SideBar";
+import Container from "./components/Container";
+
+const TEMP = [
+  {
+    title: "memo 1",
+    content: "memo 1 content",
+    createAt: 1743920753833, // 시간 값 (생성 시간) new Date().getTime()
+    updateAt: 1743920753833, // 시간 값 (수정 시간)
+  },
+  {
+    title: "memo 2",
+    content: "memo 2 content",
+    createAt: 1743920753833, // 시간 값 (생성 시간) new Date().getTime()
+    updateAt: 1743920753833, // 시간 값 (수정 시간)
+  },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [memos, setMemos] = useState(TEMP);
+  const [selectIdx, setSelectIdx] = useState(0);
+
+  const handleMemoChange = (newMemo) => {
+    let newMemos = [...memos];
+    newMemos[selectIdx] = newMemo;
+    setMemos(newMemos);
+  };
+
+  const handleAddMemo = () => {
+    let newMemo = {
+      title: "Untitled",
+      content: "",
+      createdAt: new Date().getTime(),
+      updatedAt: new Date().getTime(),
+    };
+    setMemos([...memos, newMemo]);
+    setSelectIdx(memos.length);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="main">
+      <SideBar
+        memos={memos}
+        selectIdx={selectIdx}
+        setSelectIdx={setSelectIdx}
+        onAddMemo={handleAddMemo}
+      />
+      <Container memo={memos[selectIdx]} onMemoChange={handleMemoChange} />
+    </div>
+  );
 }
 
-export default App
+export default App;

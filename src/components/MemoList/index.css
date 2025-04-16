@@ -1,0 +1,20 @@
+.listDiv {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+.listDiv button {
+  display: none;
+}
+.listDiv:hover button {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 5px;
+  border: none;
+  background-color: transparent;
+  color: red;
+  cursor: pointer;
+}

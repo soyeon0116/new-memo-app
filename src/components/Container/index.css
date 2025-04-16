@@ -1,0 +1,24 @@
+.containerSection {
+  width: 80%;
+  background-color: #e9e9e9;
+}
+.containerSection > div {
+  padding: 10px;
+}
+.containerSection > div input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 2rem;
+}
+.containerSection > div textarea {
+  box-sizing: border-box;
+  width: 100%;
+  height: 90vh;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}

@@ -1,0 +1,21 @@
+.sidebarSection {
+  width: 20%;
+  background-color: #ccc;
+  border-right: 1px solid #bbb;
+}
+h1 {
+  text-align: center;
+  padding: 10px 0;
+}
+.addMemoBtn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid gray;
+  color: gray;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+.sidebarSection > div {
+  height: 92vh;
+}
